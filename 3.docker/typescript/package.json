@@ -1,0 +1,17 @@
+{
+  "name": "hello-typescript",
+  "version": "1.0.0",
+  "description": "A simple TypeScript application",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
+  }
+}

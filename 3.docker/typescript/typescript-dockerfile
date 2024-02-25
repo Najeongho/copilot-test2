@@ -1,0 +1,23 @@
+# 빌드 단계
+FROM node:14 as build
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# 실행 단계
+FROM node:14
+
+WORKDIR /app
+
+COPY --from=build /app/dist ./dist
+COPY package*.json ./
+RUN npm install --production
+
+# 애플리케이션 실행을 위한 포트 설정
+EXPOSE 3000
+
+CMD ["node", "dist/main.js"]
